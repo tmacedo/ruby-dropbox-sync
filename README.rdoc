@@ -1,0 +1,28 @@
+= A Dropbox Sync Daemon / cron script written in Ruby.
+
+It allows you to sync a folder in your Dropbox with a directory in your filesystem without running the Dropbox client (useful in non-x86 NAS, etc).
+
+== Usage
+
+The first step is to install the bundle:
+
+  bundle install
+
+Then you need to allow acess to your Dropbox and select a local directory for sync:
+
+  bundle exec ruby -Ilib oauth.rb
+
+Once that is done you should be able to sync:
+
+  bundle exec ruby -Ilib cron.rb
+
+== Notes
+
+* Remote *always wins*. That means that if a file is changed in both Dropbox and locally, the local version is overwritten.
+* You can at any moment reset your sync by removing the mappings.db file.
+
+= TODO
+
+* Daemon
+* Conflict resolution rules
+* Proper handling of directory tree modification times
