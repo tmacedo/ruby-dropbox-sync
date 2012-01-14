@@ -1,18 +1,23 @@
-GEM
-  remote: http://rubygems.org/
+GIT
+  remote: https://github.com/tmacedo/dropbox-api.git
+  revision: 7027201b3875bbc7ccad3af2e03c2db425366d17
   specs:
     dropbox-api (0.1.0)
       hashie
+      json_pure
       oauth
-      yajl-ruby
+
+GEM
+  remote: http://rubygems.org/
+  specs:
     hashie (1.2.0)
+    json_pure (1.6.4)
     oauth (0.4.5)
     sqlite3 (1.3.5)
-    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  dropbox-api
+  dropbox-api!
   sqlite3
