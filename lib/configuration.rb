@@ -8,7 +8,7 @@ class Configuration
   def self.values
     @@config ||= YAML.load_file(PATH)
   rescue
-    {}
+    @@config = {}
   end
 
   def self.write(key, obj)
