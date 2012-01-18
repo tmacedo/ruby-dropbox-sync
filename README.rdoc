@@ -10,11 +10,15 @@ The first step is to install the bundle:
 
 Then you need to allow acess to your Dropbox and select a local directory for sync:
 
-  bundle exec ruby -Ilib oauth.rb
+  bundle exec ruby oauth.rb
 
 Once that is done you should be able to sync:
 
-  bundle exec ruby -Ilib cron.rb
+  bundle exec ruby cron.rb
+
+The daemon can be started like this:
+
+  bundle exec ruby daemon_runner.rb start
 
 == Notes
 
@@ -23,6 +27,5 @@ Once that is done you should be able to sync:
 
 = TODO
 
-* Daemon
 * Conflict resolution rules
 * Proper handling of directory tree modification times

@@ -10,6 +10,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    daemons (1.1.4)
     hashie (1.2.0)
     json_pure (1.6.4)
     oauth (0.4.5)
@@ -19,5 +20,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  daemons
   dropbox-api!
   sqlite3

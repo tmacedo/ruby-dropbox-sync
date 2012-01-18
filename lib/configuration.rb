@@ -1,6 +1,6 @@
 class Configuration
 
-  PATH = "config.yml"
+  PATH = File.dirname(__FILE__) + "/../config.yml"
 
   def initialize
   end
