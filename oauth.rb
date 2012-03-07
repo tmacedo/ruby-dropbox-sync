@@ -1,8 +1,7 @@
 require "rubygems"
 require "bundler/setup"
 Bundler.require(:default)
-
-require 'initializer'
+require File.dirname(__FILE__) + '/lib/initializer'
 
 consumer = Dropbox::API::OAuth.consumer(:authorize)
 request_token = consumer.get_request_token
