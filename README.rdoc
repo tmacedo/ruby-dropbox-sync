@@ -4,7 +4,7 @@ It allows you to sync a folder in your Dropbox with a directory in your filesyst
 
 == Key issues
 
-Dropbox is unwilling to approve a "production" key for this application due to the keys being embedded in the source. Therefore only 5 different Dropbox users will be able to use this application as is. If you run into issues with the key you should [create a new app](https://www.dropbox.com/developers/apps) and replace the keys in lib/initializer.rb
+Dropbox is unwilling to approve a "production" key for this application due to the keys being embedded in the source. Therefore only 5 different Dropbox users will be able to use this application as is. If you run into issues with the key you should create a new app ( https://www.dropbox.com/developers/apps ) and replace the keys in lib/initializer.rb
 
 == Usage
 
