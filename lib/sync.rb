@@ -76,7 +76,11 @@ module Sync
                 # this is a fake change, due to improper handling of directory mtime changes caused by subdirectories or files
                 raise e unless e.message.include? "already exists."
               end
-	      @@client.search(File.basename(remote_path), :path => File.dirname(remote_path)).first.modified
+              if File.dirname(remote_path) == "."
+	        @@client.search(File.basename(remote_path)).first.modified
+              else
+                @@client.search(File.basename(remote_path), :path => File.dirname(remote_path)).first.modified
+              end
             else
               @@client.upload(remote_path, open(local_path).read)
               @@client.find(remote_path).modified

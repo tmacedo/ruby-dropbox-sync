@@ -13,11 +13,11 @@ class Entry
   end
 
   def remote_newer?
-    !exists_locally? || row["remote_updated_at"].nil? || @remote_timestamp > Time.parse(row["remote_updated_at"]).utc
+    !exists_locally? || row["remote_updated_at"].nil? || @remote_timestamp.to_i > Time.parse(row["remote_updated_at"]).utc.to_i
   end
 
   def local_newer?
-    !exists_locally? || row["local_updated_at"].nil? || @local_timestamp > Time.parse(row["local_updated_at"]).utc
+    !exists_locally? || row["local_updated_at"].nil? || @local_timestamp.to_i > Time.parse(row["local_updated_at"]).utc.to_i
   end
 
   def update_local(&block)
