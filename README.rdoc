@@ -31,6 +31,7 @@ The daemon can be started like this:
 
 = TODO
 
-* Tests
+* Test: remote actions are synced properly
 * Conflict resolution rules
 * Proper handling of directory tree modification times
+* Use the new Dropbox delta API call
