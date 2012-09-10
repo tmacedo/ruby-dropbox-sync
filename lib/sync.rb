@@ -4,6 +4,10 @@ module Sync
   @@client = Dropbox::API::Client.new(:token  => Configuration.values[:access_token], :secret => Configuration.values[:access_secret])
   @@dir = Configuration.values[:sync_dir]
 
+  def self.client
+    @@client
+  end
+
   def self.fetch_from_remote
     
     files_found = []

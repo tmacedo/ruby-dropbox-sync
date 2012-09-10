@@ -1,3 +1,4 @@
+.*.swp
 config.yml
 mappings.db
 daemon.rb.pid

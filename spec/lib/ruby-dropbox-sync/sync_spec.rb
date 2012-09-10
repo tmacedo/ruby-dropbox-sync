@@ -70,4 +70,22 @@ describe Sync do
     Entry.new(:remote_path => dir_name).exists_locally?.should be_false
     Entry.new(:remote_path => file_name).exists_locally?.should be_false
   end
+
+  it "should create a file locally if it exists in remote" do
+    file_name = "test-file-" + SecureRandom.hex(16)
+
+    Sync.client.upload(file_name, "a")
+    Sync.sync!
+
+    Entry.new(:remote_path => file_name).exists_locally?.should be_true
+  end
+
+  it "should create a directory locally if it exists in remote" do
+    dir_name = "test-dir-" + SecureRandom.hex(16)
+    Sync.client.mkdir(dir_name)
+
+    Sync.sync!
+
+    Entry.new(:remote_path => dir_name).exists_locally?.should be_true
+  end
 end

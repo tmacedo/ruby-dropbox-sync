@@ -41,7 +41,7 @@ class Entry
     local_timestamp = convert_time(@local_timestamp)
 
     if exists_locally?
-      MappingDatabase.instance.db.execute("UPDATE mappings SET remote_updated_at = ?, local_updated_at = ? WHERE path = ?", remote_timestamp, local_timestamp, @path)
+      MappingDatabase.instance.db.execute("UPDATE mappings SET remote_updated_at = ?, local_updated_at = ? WHERE path like ?", remote_timestamp, local_timestamp, @path)
     else
       MappingDatabase.instance.db.execute("INSERT INTO mappings (path, remote_updated_at, local_updated_at) VALUES(?,?,?)", @path, remote_timestamp, local_timestamp)
     end
@@ -50,12 +50,12 @@ class Entry
   def delete(&block)
     MappingDatabase.instance.db.transaction do
       yield
-      MappingDatabase.instance.db.execute("DELETE FROM mappings WHERE path = ?", @path)
+      MappingDatabase.instance.db.execute("DELETE FROM mappings WHERE path like ?", @path)
     end
   end
 
   def row
-    @row ||= MappingDatabase.instance.db.get_first_row( "SELECT * FROM mappings WHERE path = ?", @path )
+    @row ||= MappingDatabase.instance.db.get_first_row( "SELECT * FROM mappings WHERE path like ?", @path.to_s )
   end
 
   def exists_locally?
